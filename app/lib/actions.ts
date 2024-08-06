@@ -24,7 +24,6 @@ const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
 export type State = {
   errors?: {
-    id?: string[];
     customerId?: string[];
     amount?: string[];
     status?: string[];
@@ -76,7 +75,17 @@ export async function createInvoice(prevState: State, formData: FormData) {
 // Use Zod to update the expected types
 const UpdateInvoice = FormSchema.omit({ date: true });
 
-export async function updateInvoice(prevState: State, formData: FormData) {
+export type EditState = {
+  errors?: {
+    id?: string[];
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
+  };
+  message?: string | null;
+};
+
+export async function updateInvoice(prevState: EditState, formData: FormData) {
 
   const validatedFields = UpdateInvoice.safeParse({
     id: formData.get('id'),
