@@ -94,7 +94,6 @@ export async function updateInvoice(prevState: EditState, formData: FormData) {
     status: formData.get('status'),
   });
 
-
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
     return {
