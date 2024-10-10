@@ -5,7 +5,6 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
-import { State } from '@/app/lib/actions';
 
 const FormSchema = z.object({
   id: z.string(),
